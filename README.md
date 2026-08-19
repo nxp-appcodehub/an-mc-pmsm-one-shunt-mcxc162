@@ -1,7 +1,7 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## AN one shunt FOC on MCXC162
+## One shunt FOC on MCXC162
 This application note describes the implementation of sensorless one shunt FOC on NXP MCXC162 MCU. <!--Please refer to [AN14619](https://www.nxp.com/webapp/Download?colCode=AN14619&location=null&isHTMLorPDF=HTML) for complete instructions on how to use this software. -->   
 This application note mainly introduces the principle of one shunt PMSM FOC, hardware and software implementation with NXP development kit, including a detailed peripheral setup,driver description and FreeMASTER operation guide.
 
@@ -21,9 +21,9 @@ This application note mainly introduces the principle of one shunt PMSM FOC, har
 
 ## 1. Software<a name="step1"></a>
 - Download and install [MCUXpresso IDE V25.06 or later](https://www.nxp.com/design/design-center/software/development-software/mcuxpresso-software-and-tools-/mcuxpresso-integrated-development-environment-ide:MCUXpresso-IDE).
-- Down load MCUXpresso SDK SDK_26_06_00_FRDM-MCXC162 for MCUXpresso IDE.
+- Download MCUXpresso SDK SDK_26_06_00_FRDM-MCXC162 for MCUXpresso IDE.
 - Download and install the latest version of [FreeMASTER](https://www.nxp.com/design/software/development-software/freemaster-run-time-debugging-tool:FREEMASTER)(3.2.2.2).
-- Download the code from Git repository an-mc-pmsm-one-shunt-mcxc162<!--[an-pmsm-foc-mcxa153](https://github.com/nxp-appcodehub/an-mc-pmsm-one-shunt-mcxa153)-->.  
+- Download the code from Git repository [an-mc-pmsm-one-shunt-mcxc162](https://github.com/nxp-appcodehub/an-mc-pmsm-one-shunt-mcxc162).  
 - MCUXpresso for Visual Studio Code: This example supports MCUXpresso for Visual Studio Code, for more information about how to use Visual Studio Code please refer [here](https://www.nxp.com/design/training/getting-started-with-mcuxpresso-for-visual-studio-code:TIP-GETTING-STARTED-WITH-MCUXPRESSO-FOR-VS-CODE).
 
 ## 2. Hardware<a name="step2"></a>
@@ -37,26 +37,26 @@ This application note mainly introduces the principle of one shunt PMSM FOC, har
 ### 3.1 Import project
 #### 3.1.A Import project from Application Code Hub
 1. Open MCUXpresso IDE, in the Quick Start Panel, choose **Import from Application Code Hub**.  
-2. Found demo you need by searching the name directly or selecting tags you interested in. Open the project, click the **GitHub link** to then **Next**.  
+2. Find the demo you need by searching the name directly or selecting tags you are interested in. Open the project, click the **GitHub link** and then **Next**.  
 3. Select **main** branch and then click **Next**.  
-4. Select your local path for the repo in **Destination->Directory:** window. The MCUXpresso IDE will clone the repo to the path that your selected, **Next** after the clone process.  
+4. Select your local path for the repo in **Destination->Directory:** window. The MCUXpresso IDE will clone the repo to the path that you selected, **Next** after the clone process.  
 5. Select **Import existing Eclipse projects** in **Wizard for project import** window then **Next**.  
 6. Select the project in this repo(only one project in this repo) then **Finish**.  
 #### 3.1.B Import project after clone git repo to your local path
 1. Clone repo **an-mc-pmsm-one-shunt-mcxc162** from **GitHub**. Open MCUXpresso IDE, in the Quick Start Panel, choose **Import project(s) from file system**.  
 2. Select your local path of the repo in **Project directory(unpacked)** item then **Next**. If you download a compressed pack from GitHub, Select your local path of the package in **Project archive(zip)** item.  
 3. Select the project in this repo(show in **Projects:** window, only one project in this repo), then **Finish**. . The project will be pasted to your IDE workspace if you click **Copy projects into workspace** in **Options** item, the change you made will be saved in the copy in workspace.  
-#### 3.1.2 Then you will see the project in **Project Explorer** window.  
-### 3.2 Compiler the project
-Use build botton in toolbar to compiler the project.  
+#### 3.1.C Then you will see the project in **Project Explorer** window.  
+### 3.2 Compile the project
+Use the build button in the toolbar to compile the project.  
 
 ### 3.3 Hardware setup
 Connect the **FRDM-MC-LVPMSM** shield to the **J1~J4** arduino connector of **FRDM-MCXC162** board. Connect the 3-phase wire of the motor to the J7 connector on FRDM-MC-LVPMSM according to phase sequence.  
 
 For motor LINIX 45ZWN24-40:  
-**White wide** --phase**A**;  
-**Bule wide** --phase**B**;  
-**Green wide** --phase**C**.  
+**White wire** --phase**A**;  
+**Blue wire** --phase**B**;  
+**Green wire** --phase**C**.  
 
 <!--For motor Teknic M-2310P:  
 **Black wide**--phase**A**;  
@@ -64,7 +64,7 @@ For motor LINIX 45ZWN24-40:
 **White wide**--phase**C**.  -->
 Then power the FRDM-MC-LVPMSM board with a 24V adaptor.  
 
-Use a USB cable to connect to the FRDM board via **J15** connector. Download the code using debug button in tool bar after compiler. Select **CMSIS-DAP** or **J-Link** in **Debug As** according firmware in your on-board debugger. 
+Use a USB cable to connect to the FRDM board via **J15** connector. Download the code using the debug button in the toolbar after compiling. Select **CMSIS-DAP** or **J-Link** in **Debug As** according to the firmware in your on-board debugger. 
 
 ### 3.4 Run the demo
 Press SW2 on FRDM board to control the motor to run or stop. Or use FreeMASTER project **"pmsm_frac.pmpx"** in the code package to control the motor, change rotor speed and obverse the speed or other value. 
@@ -85,7 +85,7 @@ The FreeMASTER can be used to completely control and easily tune the sensorless 
 Open **an-mc-pmsm-one-shunt-mcxc162\motor_control\freemaster\pmsm_frac.pmpx** in project path.  
 Open **Project->Options..** in FreeMASTER menu and go to **Comm** tag to configure COM number and communication speed.  
 
-Then go to **MAP Files** tag. Select IDE generated map file **an-mc-pmsm-one-shunt-mcxc162\Debug\an-mc-pmsm-one-shunt-mcxc162.axf** or **an-mc-pmsm-one-shunt-mcxc162\Release\an-mc-pmsm-one-shunt-mcxc162.axf** in project path, generated after compiler the project. Choose **Binary ELF with DWARF2/DWARF4 dbg format.** tag in **File format:** window.  
+Then go to **MAP Files** tag. Select IDE generated map file **an-mc-pmsm-one-shunt-mcxc162\Debug\an-mc-pmsm-one-shunt-mcxc162.axf** or **an-mc-pmsm-one-shunt-mcxc162\Release\an-mc-pmsm-one-shunt-mcxc162.axf** in project path, generated after compiling the project. Choose **Binary ELF with DWARF2/DWARF4 dbg format.** tag in **File format:** window.  
 Click **Start Communication** in menu to connect to MCU board when MCU is running.  
 
 ## 5. FAQs<a name="step5"></a>
@@ -122,4 +122,4 @@ Questions regarding the content/correctness of this example can be entered as Is
 ## 7. Release Notes<a name="step7"></a>
 | Version | Description / Update                           | Date                        |
 |:-------:|------------------------------------------------|----------------------------:|
-| 1.0     | Initial release on Application Code Hub        | August 10<sup>nd</sup> 2026 |
+| 1.0     | Initial release on Application Code Hub        | August 10<sup>th</sup> 2026 |
