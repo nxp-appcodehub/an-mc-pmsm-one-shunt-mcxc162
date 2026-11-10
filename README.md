@@ -1,8 +1,8 @@
 # NXP Application Code Hub
 [<img src="https://mcuxpresso.nxp.com/static/icon/nxp-logo-color.svg" width="100"/>](https://www.nxp.com)
 
-## One shunt FOC on MCXC162
-This application note describes the implementation of sensorless one shunt FOC on NXP MCXC162 MCU. <!--Please refer to [AN14619](https://www.nxp.com/webapp/Download?colCode=AN14619&location=null&isHTMLorPDF=HTML) for complete instructions on how to use this software. -->   
+## AN15166: One shunt FOC on MCXC162
+This application note describes the implementation of sensorless one shunt FOC on NXP MCXC162 MCU. Please refer to [AN15166](https://www.nxp.com/webapp/Download?colCode=AN15166&location=null&isHTMLorPDF=HTML) for complete instructions on how to use this software.   
 This application note mainly introduces the principle of one shunt PMSM FOC, hardware and software implementation with NXP development kit, including a detailed peripheral setup,driver description and FreeMASTER operation guide.
 
 #### Boards: FRDM-MCXC162
